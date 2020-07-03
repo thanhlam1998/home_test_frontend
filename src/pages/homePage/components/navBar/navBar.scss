@@ -1,0 +1,26 @@
+.homepage-navbar{
+    background-color: #ff742b;
+    img{
+        width: 48px
+    }
+    .header-search {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 1; 
+    }
+    .search-bar-container {
+        position: relative;
+        background-color: #fff;
+        border-radius: 1.2rem;
+        width: calc(100% - 324px);
+        display: inline-block;
+        .search-bar{
+            border-radius: 1.2rem;
+            padding-left: 50px;
+        }
+        .search-icon{
+            position: absolute;
+        }
+    }
+}
