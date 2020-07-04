@@ -1,4 +1,5 @@
 import React from 'react'
+import {RiSearchLine} from 'react-icons/ri'
 import './navBar.scss'
 
 const Navbar = () => {
@@ -11,8 +12,13 @@ const Navbar = () => {
                 Testing
             </div>
             <div className="search-bar-container">
-                <span className="search-icon">Hello</span>
+                <span className="search-icon"><RiSearchLine/></span>
                 <input className="form-control search-bar" type="search" placeholder="Search stories by title, url or author"/>
+            </div>
+            <div className="text-container">
+                <span className="ml-2 mr-2 font-weight-bold">by</span>
+                <img className="logo-algolia mr-1" src="https://logosandtypes.com/wp-content/uploads/algolia.svg" alt="logo"></img>
+                <span className="text-light text-algolia">Algolia</span>
             </div>
         </nav>
     )
