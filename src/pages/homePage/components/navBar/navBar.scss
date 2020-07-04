@@ -1,11 +1,12 @@
 .homepage-navbar{
+    position: relative;
     background-color: #ff742b;
     img{
         width: 48px
     }
     .header-search {
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         line-height: 1; 
     }
@@ -13,7 +14,7 @@
         position: relative;
         background-color: #fff;
         border-radius: 100px;
-        width: calc(100% - 450px);
+        width: calc(100% - 400px);
         display: inline-block;
         .search-bar{
             border-radius: 100px;
@@ -30,13 +31,36 @@
         .logo-algolia{
             filter: brightness(0) invert(1);
             width: 20px;
+            margin-bottom: 5px;
         }
         .text-algolia{
             font-size: 18px;
         }
     }
 
-    @media only screen and (max-width: 768px){
+    .setting{
+        position: absolute;
+        right: 0;
+        color: #fff;
+        .setting-icon{
+            font-size: 24px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+        .text-setting{
+            font-size: 18px;
+            margin-left: 5px;
+            margin-right: 25px;
+        }
+        .setting-responsive-icon{
+            display: none;
+            font-size: 28px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+    }
+
+    @media screen and (max-width: 768px){
         .search-bar-container {
         width: calc(100% - 120px);
         }
@@ -45,6 +69,18 @@
         }
         .text-container{
             display: none;
+        }
+        .setting{
+            .setting-responsive-icon{
+                display: inline;
+                margin-right: 30px;
+            }
+            .setting-icon{
+                display: none;
+            }
+            .text-setting{
+                display: none;
+            }
         }
     }
 }
