@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="text-container">
                 <span className="ml-2 mr-2 font-weight-bold">by</span>
                 <img className="logo-algolia mr-1" src="https://logosandtypes.com/wp-content/uploads/algolia.svg" alt="logo"></img>
-                <span className="text-light text-algolia">Algolia</span>
+                <span className="text-light text-algolia">algolia</span>
             </div>
             <a className="setting" href="/">
                 <FiSettings className="setting-icon"/>
