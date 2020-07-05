@@ -1,7 +1,10 @@
 import React from 'react'
 import './sortBar.scss'
 
-const sortBar = () => {
+const sortBar = (props) => {
+    const resultWithSeparater = (results) => {
+        return results.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     return (
         <div className="sort-bar-container mt-2 mb-2">
             <span>
@@ -29,6 +32,9 @@ const sortBar = () => {
                     <option value="Past Year">Past Year</option>
                 </select>
             </span>
+            <div className="processing-time-result">
+                <span>{resultWithSeparater(props.results)} {props.results > 1 ? "results" : "result"} ({props.processingTime} seconds)</span>
+            </div>
         </div>
     )
 }

@@ -1,11 +1,14 @@
 .item-container{
     margin-left: 16px;
     margin-right: 16px;
-    margin-bottom: 5px;
-    .title{
-        color: #000;
-        font-size: 14px;
-        word-break: break-all;
+    margin-bottom: 8px;
+    .story-title{
+        line-height: 1.25;
+        .title{
+            color: #000;
+            font-size: 14px;
+            word-break: break-all;
+        }
     }
     .title:hover{
         text-decoration: none;
@@ -18,8 +21,13 @@
     .item-meta{
         color: #696969;
         font-size: 10px;
+        margin-top:2px;
         .separator{
             margin: 0 5px
         }
+    }
+    .story-text{
+        font-size: 12px;
+        margin-top: 8px;
     }
 }

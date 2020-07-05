@@ -3,8 +3,12 @@ import axios from 'axios'
 
 const baseUrl = config.url;
 
-const searchByPoint = () => {
-    return axios.get(`${baseUrl}/search`)
+const searchByPoint = (page) => {
+    return axios.get(`${baseUrl}/search`, {
+        params:{
+            page: page
+        }
+    })
     .then((res) => {
         return res.data
     })

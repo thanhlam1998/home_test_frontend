@@ -1,10 +1,10 @@
 import {HomePageConstants} from './constants/homepage'
 import {HomePageService} from '../services/apis/homepage'
 
-function getSearchByPoint(){
+function getSearchByPoint(page){
     return (dispatch) => {
       dispatch(request());
-      HomePageService.searchByPoint()
+      HomePageService.searchByPoint(page)
       .then(
         res =>{
           dispatch(success(res))

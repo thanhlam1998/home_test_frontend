@@ -7,13 +7,17 @@ import { connect } from 'react-redux'
 
 const Content = (props) => {
     const [page, setPage] = useState(1)
+    const [timePast, setTImePast] = useState()
+
     useEffect(() => {
-        props.getSearchRequest()
-    }, [])
+        props.getSearchRequest(page-1)
+    }, [page])
 
     useEffect(() => {
        if(props.homepage.searchRequestSuccess === true){
            setHits(props.homepage.result.hits)
+           props.setResults(props.homepage.result.nbHits)
+           props.setProcessingTime(props.homepage.result.processingTimeMS / 1000)
        }
     }, [props.homepage])
 
@@ -27,8 +31,8 @@ const Content = (props) => {
                 hideNavigation
                 activePage={page}
                 itemsCountPerPage={20}
-                totalItemsCount={450}
-                pageRangeDisplayed={5}
+                totalItemsCount={20*50}
+                pageRangeDisplayed={6}
                 itemClass="page-item"
                 linkClass="page-link"
                 onChange={(pageNumber) => setPage(pageNumber)}
@@ -42,7 +46,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getSearchRequest: () =>  dispatch(HomePageActions.getSearchByPoint())
+    getSearchRequest: (page) =>  dispatch(HomePageActions.getSearchByPoint(page))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content)
