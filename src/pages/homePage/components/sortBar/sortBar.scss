@@ -20,4 +20,10 @@
         bottom: 2px;
         font-size: 12px;
     }
+
+    @media screen and (max-width: 768px){
+        .processing-time-result{
+            display: none;
+        }
+    }
 }

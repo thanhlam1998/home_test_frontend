@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './item.scss'
 
 const Item = (props) => {
@@ -8,14 +8,63 @@ const Item = (props) => {
         return {__html: string};
     }
 
-    if(props.item){
-        const date = new Date(props.item.created_at_i * 1000)
-        const now = new Date();
-    }
+    useEffect(() => {
+        if(props.item){
+            const date = new Date(props.item.created_at_i * 1000)
+            const now = new Date();
+            const year = now.getFullYear() - date.getFullYear();
+            if(year > 0){
+                if(year === 1){
+                    setPastDate(`${year} year ago`)
+                } else {
+                    setPastDate(`${year} years ago`)
+                }
+                return
+            }
+            const month = now.getMonth() - date.getMonth();
+            if(month > 0){
+                if(month === 1){
+                    setPastDate(`${month} month ago`)
+                } else {
+                    setPastDate(`${month} months ago`)
+                }
+                return
+            }
+            const day = now.getDate() - date.getDate();
+            if(day > 0){
+                if(day === 1){
+                    setPastDate(`${day} day ago`)
+                } else {
+                    setPastDate(`${day} days ago`)
+                }
+                return
+            }
+            const hour = now.getHours() - date.getHours();
+            if(hour > 0){
+                if(hour === 1){
+                    setPastDate(`${hour} hour ago`)
+                } else {
+                    setPastDate(`${hour} hours ago`)
+                }
+                return
+            }
+            const minute = now.getMinutes() - date.getMinutes();
+            if(minute > 0){
+                if(minute === 1){
+                    setPastDate(`${minute} minute ago`)
+                } else {
+                    setPastDate(`${minute} minutes ago`)
+                }
+                return
+            }
+        }
+    }, [props.item])
+
+    
     return (
         <div className="item-container">
             <div className="story-title">
-                <a className="title" href = "/">
+                <a className="title" href = {`/items/${props.item.objectID}`}>
                     <span>{props.item.title}</span>
                 </a>
                 {props.item.url &&
@@ -26,7 +75,7 @@ const Item = (props) => {
                 <span className="separator">|</span>
                 <span>{props.item.author}</span>
                 <span className="separator">|</span>
-                <span>2 years ago</span>
+                <span>{pastDate}</span>
                 <span className="separator">|</span>
                 <span>{props.item.num_comments} {props.item.num_comments > 1 ? "comments" : "comment"}</span>
             </div>

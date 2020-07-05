@@ -1,0 +1,25 @@
+.content-container{
+    position: relative;
+    background-color: #f6f6ef;
+    height: calc(100% + 120px);
+    padding: 5px 0;
+    .pagination{
+        justify-content: center;
+        margin-top: 20px;
+        a{
+            background-color: #f6f6ef;
+        }
+        .page-link{
+            background-color: #f6f6ef;
+            color: #9d9d9d;
+            font-size: 12px;
+        }
+        .page-item.active .page-link{
+            color: #ff742b;
+            border-color: #ff742b;
+        }
+        .page-link:focus{
+            box-shadow: none;
+        }
+    }
+}

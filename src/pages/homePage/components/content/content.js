@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 const Content = (props) => {
     const [page, setPage] = useState(1)
-    const [timePast, setTImePast] = useState()
 
     useEffect(() => {
         props.getSearchRequest(page-1)

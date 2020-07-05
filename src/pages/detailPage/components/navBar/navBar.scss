@@ -1,0 +1,29 @@
+.detailPage-navbar{
+    position: relative;
+    background-color: #ff742b;
+    img{
+        width: 48px
+    }
+    .header-search {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 1; 
+    }
+    .text-container{
+        position: absolute;
+        right: 20px;
+        .logo-algolia{
+            filter: brightness(0) invert(1);
+            width: 20px;
+        }
+        .text-algolia{
+            font-size: 16px;
+        }
+    }
+}
+
+.navbar{
+    justify-content: start;
+    padding: 0px;
+}
