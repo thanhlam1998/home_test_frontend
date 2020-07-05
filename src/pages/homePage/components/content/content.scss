@@ -1,6 +1,9 @@
 .content-container{
     position: relative;
     background-color: #f6f6ef;
-    height: calc(100vh - 120px);
+    height: calc(100% + 120px);
     padding: 5px 0;
+    .pagination{
+        justify-content: center;
+    }
 }

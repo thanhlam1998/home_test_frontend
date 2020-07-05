@@ -1,10 +1,11 @@
 .item-container{
     margin-left: 16px;
     margin-right: 16px;
+    margin-bottom: 5px;
     .title{
         color: #000;
         font-size: 14px;
-        line-height: 1;
+        word-break: break-all;
     }
     .title:hover{
         text-decoration: none;

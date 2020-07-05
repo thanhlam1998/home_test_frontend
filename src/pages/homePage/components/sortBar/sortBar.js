@@ -6,7 +6,7 @@ const sortBar = () => {
         <div className="sort-bar-container mt-2 mb-2">
             <span>
                 <span className="search-filter-text">Search</span>
-                <select className="dropdown">
+                <select className="dropdown" defaultValue="Stories">
                     <option value="All">All</option>
                     <option value="Stories">Stories</option>
                     <option value="Comments">Comments</option>

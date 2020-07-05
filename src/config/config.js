@@ -1,3 +1,3 @@
 export const config = {
-    url: "http://hn.algolia.com/api/v1/search",
+    url: "http://hn.algolia.com/api/v1",
 }
