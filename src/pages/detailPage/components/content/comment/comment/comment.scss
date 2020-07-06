@@ -1,0 +1,14 @@
+.comment{
+    margin-left: 16px;
+    margin-right: 16px;
+    .comment-header{
+        color: #828282;
+        font-size: 11px;
+        .more-button:hover{
+            text-decoration: underline;
+        }
+    }
+    .comment-detail{
+        font-size: 12px
+    }
+}

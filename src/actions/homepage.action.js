@@ -18,6 +18,24 @@ function getSearchByPoint(page){
     function failure(error){return{type: HomePageConstants.SEARCH_REQUEST_ERROR, payload: error}};
 };
 
+function getSearchByDate(page){
+    return (dispatch) => {
+      dispatch(request());
+      HomePageService.searchByDate(page)
+      .then(
+        res =>{
+          dispatch(success(res))
+        }
+      ).catch(error => {
+        dispatch(failure(error))
+      }) 
+    };
+    function request(){ return{type: HomePageConstants.SEARCH_REQUEST_PENDING}};
+    function success(res){return{type: HomePageConstants.SEARCH_REQUEST_SUCCESS, payload: res}};
+    function failure(error){return{type: HomePageConstants.SEARCH_REQUEST_ERROR, payload: error}};
+};
+
 export const HomePageActions = {
-    getSearchByPoint
+    getSearchByPoint,
+    getSearchByDate
 }

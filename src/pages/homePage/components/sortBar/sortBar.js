@@ -17,7 +17,7 @@ const sortBar = (props) => {
             </span>
             <span>
                 <span className="search-filter-text">by</span>
-                <select className="dropdown">
+                <select className="dropdown" onChange={e => props.setFilterBy(e.target.value)}>
                     <option value="Popularity">Popularity</option>
                     <option value="Date">Date</option>
                 </select>

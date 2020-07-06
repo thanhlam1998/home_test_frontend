@@ -14,8 +14,12 @@ const searchByPoint = (page) => {
     })
 }
 
-const searchByDate = () => {
-    return axios.get(`${baseUrl}/search_by_date`)
+const searchByDate = (page) => {
+    return axios.get(`${baseUrl}/search_by_date`, {
+        params:{
+            page: page
+        }
+    })
     .then((res) => {
         return res.data
     })

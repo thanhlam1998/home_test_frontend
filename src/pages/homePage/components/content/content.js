@@ -7,13 +7,19 @@ import { connect } from 'react-redux'
 
 const Content = (props) => {
     const [page, setPage] = useState(1)
-
+    const [total, setTotal] = useState(0)
     useEffect(() => {
-        props.getSearchRequest(page-1)
-    }, [page])
+        if(props.filterBy === 'Popularity')
+        {
+            props.getSearchRequest(page-1)
+        } else {
+            props.getSearchRequestByDate(page-1)
+        }
+    }, [page, props.filterBy])
 
     useEffect(() => {
        if(props.homepage.searchRequestSuccess === true){
+           setTotal(props.homepage.result.nbHits)
            setHits(props.homepage.result.hits)
            props.setResults(props.homepage.result.nbHits)
            props.setProcessingTime(props.homepage.result.processingTimeMS / 1000)
@@ -23,14 +29,14 @@ const Content = (props) => {
     const [hits, setHits] = useState()
     return (
         <div className="content-container">
-            {hits && hits.map((item, index) => item.title && <Item item={item} key={index}/>)}
+            {hits && hits.map((item, index) => (item.title || item.story_title) && <Item item={item} key={index}/>)}
             {hits && 
             <Pagination
                 className = "pagination"
                 hideNavigation
                 activePage={page}
                 itemsCountPerPage={20}
-                totalItemsCount={20*50}
+                totalItemsCount={total > 20*50 ? 20*50 : total}
                 pageRangeDisplayed={6}
                 itemClass="page-item"
                 linkClass="page-link"
@@ -45,7 +51,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getSearchRequest: (page) =>  dispatch(HomePageActions.getSearchByPoint(page))
+    getSearchRequest: (page) =>  dispatch(HomePageActions.getSearchByPoint(page)),
+    getSearchRequestByDate: (page) =>  dispatch(HomePageActions.getSearchByDate(page)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content)
